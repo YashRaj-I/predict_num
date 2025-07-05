@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Guesser</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+
+    input, button {
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    input {
+      width: 250px;
+    }
+
+    button {
+      background: #00ff99;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #output {
+      font-size: 1.6rem;
+      margin-top: 20px;
+      height: 50px;
+      text-align: center;
+    }
+
+    .dots::after {
+      content: '';
+      display: inline-block;
+      animation: dots 1s steps(4, end) infinite;
+    }
+
+    @keyframes dots {
+      0% { content: '.'; }
+      25% { content: '..'; }
+      50% { content: '...'; }
+      75% { content: '......'; }
+      100% { content: ''; }
+    }
+
+    /* Background particles */
+    .background {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(0, 255, 255, 0.5);
+      border-radius: 500%;
+      animation: float 100s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.3);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background" id="background"></div>
+
+  <div class="container">
+    <h1>🎯 Guess a Number</h1>
+    <input type="number" id="userInput" placeholder="Enter a number" />
+    <button onclick="guessNumber()">Submit</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function guessNumber() {
+      const userInput = document.getElementById("userInput").value;
+      const output = document.getElementById("output");
+      output.classList.add("dots");
+      output.textContent = "Thinking";
+
+      setTimeout(() => {
+        output.classList.remove("dots");
+        output.textContent = `🎉 You guessed ${userInput}!`;
+      }, 2000);
+    }
+
+    // Generate background particles
+    const background = document.getElementById('background');
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      const size = Math.random() * 8 + 2;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${5 + Math.random() * 10}s`;
+      background.appendChild(particle);
+    }
+  </script>
+</body>
+</html>
