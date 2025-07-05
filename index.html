@@ -2,7 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Number Guesser</title>
+  <title>PredictNum - Guess the Number</title>
+  <!-- SEO Meta Tags -->
+  <meta name="title" content="PredictNum - Fun Number Guessing Game" />
+  <meta name="description" content="Try the PredictNum game — Enter a number and see if the system predicts it! Fast, fun, and beautifully animated!" />
+  <meta name="keywords" content="Number Guess, PredictNum, AI Game, Fun HTML Game, JavaScript number game" />
+  <meta name="author" content="Yash Raj" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yashraj-i.github.io/predict_num/" />
+
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yashraj-i.github.io/predict_num/" />
+  <meta property="og:title" content="PredictNum - Fun Number Guessing Game" />
+  <meta property="og:description" content="Try PredictNum! A fun number guessing game with animations. Built by Yash Raj." />
+  <meta property="og:image" content="https://yashraj-i.github.io/predict_num/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://yashraj-i.github.io/predict_num/" />
+  <meta name="twitter:title" content="PredictNum - Fun Number Guessing Game" />
+  <meta name="twitter:description" content="Guess a number and see if the system reads your mind!" />
+  <meta name="twitter:image" content="https://yashraj-i.github.io/predict_num/preview.png" />
+
   <style>
     body {
       margin: 0;
@@ -107,6 +129,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="background" id="background"></div>
 
@@ -115,6 +138,7 @@
     <input type="number" id="userInput" placeholder="Enter a number" />
     <button onclick="guessNumber()">Submit</button>
     <div id="output"></div>
+    
   </div>
 
   <script>
@@ -143,5 +167,12 @@
       background.appendChild(particle);
     }
   </script>
+  <footer style="position: fixed; bottom: 10px; width: 100%; text-align: center;">
+  <h1 style="font-size: 1rem; color: #00ffcc; text-shadow: 0 0 10px #00ffcc; font-weight: 500;">
+      Built by Yash Raj
+  </h1>
+  </footer>
+
 </body>
 </html>
+
